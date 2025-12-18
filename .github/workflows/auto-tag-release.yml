@@ -13,7 +13,13 @@ on:
       - "**.md"
       - "LICENSE"
       - ".gitignore"
-  workflow_call: {}
+  workflow_call: {}  # 允许通过其他工作流调用此工作流
+  workflow_dispatch:  # 允许手动触发
+    inputs:
+      example-input:  # 可选：定义你手动触发时需要传入的参数
+        description: 'An example input'
+        required: false
+        default: 'default-value'
 
 permissions:
   contents: write
